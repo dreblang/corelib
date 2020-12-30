@@ -1,8 +1,8 @@
 package http
 
 import (
-	"github.com/dreblang/core/corelib/http/objects"
 	"github.com/dreblang/core/object"
+	"github.com/dreblang/corelib/http/objects"
 )
 
 var httpScope = &object.Scope{
