@@ -10,11 +10,15 @@ import (
 const RequestObj = "http:Request"
 
 type Request struct {
-	ctx *routing.Context
+	ctx    *routing.Context
+	params *Params
 }
 
 func NewRequest(ctx *routing.Context) *Request {
-	return &Request{ctx: ctx}
+	return &Request{
+		ctx:    ctx,
+		params: NewParams(ctx),
+	}
 }
 
 func (obj *Request) Type() object.ObjectType { return RequestObj }
@@ -25,33 +29,10 @@ func (obj *Request) Inspect() string {
 func (obj *Request) String() string { return "Request" }
 
 func (obj *Request) GetMember(name string) object.Object {
-	// switch name {
-	// case "listenAndServe":
-	// 	return &object.MemberFn{
-	// 		Obj: obj,
-	// 		Fn:  listenAndServe,
-	// 	}
-	// case "get":
-	// 	return &object.MemberFn{
-	// 		Obj: obj,
-	// 		Fn:  get,
-	// 	}
-	// case "post":
-	// 	return &object.MemberFn{
-	// 		Obj: obj,
-	// 		Fn:  post,
-	// 	}
-	// case "put":
-	// 	return &object.MemberFn{
-	// 		Obj: obj,
-	// 		Fn:  put,
-	// 	}
-	// case "delete":
-	// 	return &object.MemberFn{
-	// 		Obj: obj,
-	// 		Fn:  delete,
-	// 	}
-	// }
+	switch name {
+	case "params":
+		return obj.params
+	}
 	return object.NewError("No member named [%s]", name)
 }
 
