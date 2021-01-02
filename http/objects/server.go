@@ -125,7 +125,7 @@ func delete(thisObj object.Object, args ...object.Object) object.Object {
 func getHTTPHandler(handler *object.Closure) func(ctx *routing.Context) error {
 	return func(ctx *routing.Context) error {
 		currentVM := vm.GetCurrentVM()
-		res := currentVM.ExecClosure(handler, NewRequest(ctx), object.False)
+		res := currentVM.ExecClosure(handler, NewRequest(ctx), NewResponse(ctx))
 
 		switch resp := res.(type) {
 		case *object.String:
