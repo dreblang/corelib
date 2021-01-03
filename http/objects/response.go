@@ -33,6 +33,11 @@ func (obj *Response) GetMember(name string) object.Object {
 	switch name {
 	case "headers":
 		return obj.headers
+	case "status":
+		return &object.MemberFn{
+			Obj: obj,
+			Fn:  responseStatus,
+		}
 	}
 	return object.NewError("No member named [%s]", name)
 }
@@ -43,4 +48,14 @@ func (obj *Response) SetMember(name string, value object.Object) object.Object {
 
 func (obj *Response) Equals(other object.Object) bool {
 	return false
+}
+
+func responseStatus(this object.Object, args ...object.Object) object.Object {
+	r := this.(*Response)
+	if len(args) == 1 {
+		if value, ok := args[0].(*object.Integer); ok {
+			r.ctx.SetStatusCode(int(value.Value))
+		}
+	}
+	return object.NewError("Could not execute header add operation. Invalid arguments!")
 }

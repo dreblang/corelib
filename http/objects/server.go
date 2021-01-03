@@ -1,6 +1,7 @@
 package objects
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/dreblang/core/object"
@@ -131,6 +132,11 @@ func getHTTPHandler(handler *object.Closure) func(ctx *routing.Context) error {
 		case *object.String:
 			_, err := ctx.WriteString(resp.Value)
 			return err
+
+		case object.NativeObject:
+			nativeObj := resp.Native()
+			writer := json.NewEncoder(ctx.Response.BodyWriter())
+			return writer.Encode(nativeObj)
 		}
 		return nil
 	}
