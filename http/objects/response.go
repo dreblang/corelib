@@ -13,12 +13,26 @@ const ResponseObj = "http:Response"
 type Response struct {
 	ctx     *fasthttp.Response
 	headers *ResponseHeader
+	_dict   map[string]object.Object
 }
 
 func NewResponse(ctx *routing.Context) *Response {
-	return &Response{
+	resp := &Response{
 		ctx:     &ctx.Response,
 		headers: NewResponseHeader(&ctx.Response),
+	}
+
+	resp.makeDict()
+
+	return resp
+}
+
+func (obj *Response) makeDict() {
+	obj._dict = map[string]object.Object{}
+	obj._dict["headers"] = obj.headers
+	obj._dict["status"] = &object.MemberFn{
+		Obj: obj,
+		Fn:  responseStatus,
 	}
 }
 
@@ -30,15 +44,8 @@ func (obj *Response) Inspect() string {
 func (obj *Response) String() string { return "Response" }
 
 func (obj *Response) GetMember(name string) object.Object {
-	switch name {
-	case "headers":
-		return obj.headers
-
-	case "status":
-		return &object.MemberFn{
-			Obj: obj,
-			Fn:  responseStatus,
-		}
+	if mem, ok := obj._dict[name]; ok {
+		return mem
 	}
 	return object.NewError("No member named [%s]", name)
 }
