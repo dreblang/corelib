@@ -58,5 +58,5 @@ func responseStatus(this object.Object, args ...object.Object) object.Object {
 			r.ctx.SetStatusCode(int(value.Value))
 		}
 	}
-	return object.NewError("Could not execute header add operation. Invalid arguments!")
+	return object.NewError("Could not set status. Invalid arguments!")
 }
