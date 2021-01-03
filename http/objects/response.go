@@ -33,6 +33,7 @@ func (obj *Response) GetMember(name string) object.Object {
 	switch name {
 	case "headers":
 		return obj.headers
+
 	case "status":
 		return &object.MemberFn{
 			Obj: obj,
