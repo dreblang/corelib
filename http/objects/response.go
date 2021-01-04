@@ -34,6 +34,10 @@ func (obj *Response) makeDict() {
 		Obj: obj,
 		Fn:  responseStatus,
 	}
+	obj._dict["redirect"] = &object.MemberFn{
+		Obj: obj,
+		Fn:  responseRedirect,
+	}
 }
 
 func (obj *Response) Type() object.ObjectType { return ResponseObj }
