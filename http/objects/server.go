@@ -132,12 +132,12 @@ func getHTTPHandler(handler *object.Closure) func(ctx *routing.Context) error {
 		case *object.String:
 			_, err := ctx.WriteString(resp.Value)
 			return err
-
-		case object.NativeObject:
-			nativeObj := resp.Native()
-			writer := json.NewEncoder(ctx.Response.BodyWriter())
-			return writer.Encode(nativeObj)
 		}
-		return nil
+
+		data, err := json.Marshal(res)
+		if err == nil {
+			ctx.Response.SetBody(data)
+		}
+		return err
 	}
 }
