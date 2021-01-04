@@ -67,3 +67,14 @@ func responseStatus(this object.Object, args ...object.Object) object.Object {
 	}
 	return object.NewError("Could not set status. Invalid arguments!")
 }
+
+func responseRedirect(this object.Object, args ...object.Object) object.Object {
+	r := this.(*Response)
+	if len(args) == 1 {
+		if value, ok := args[0].(*object.String); ok {
+			r.ctx.SetStatusCode(fasthttp.StatusFound)
+			r.ctx.Header.Set("location", value.Value)
+		}
+	}
+	return object.NewError("Could not set status. Invalid arguments!")
+}
