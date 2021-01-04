@@ -132,12 +132,15 @@ func getHTTPHandler(handler *object.Closure) func(ctx *routing.Context) error {
 		case *object.String:
 			_, err := ctx.WriteString(resp.Value)
 			return err
+		case *object.Null:
+			return nil
 		}
 
+		// Try to return a json
 		data, err := json.Marshal(res)
 		if err == nil {
 			ctx.Response.SetBody(data)
 		}
-		return err
+		return nil
 	}
 }
