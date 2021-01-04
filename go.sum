@@ -6,6 +6,8 @@ github.com/dreblang/core v0.0.0-20210104173839-585e4a00853f h1:N3O2kGb7m1opsr2bg
 github.com/dreblang/core v0.0.0-20210104173839-585e4a00853f/go.mod h1:z/Maj4vmuHXGnfo0ERKn5jbgN4nDaMtzsY7M3qgaRVc=
 github.com/dreblang/core v0.0.0-20210104175800-7edde8b38060 h1:1VDmvOw68hySQIzmPz09VxDoPrHN6QWUdx91OwF1lEg=
 github.com/dreblang/core v0.0.0-20210104175800-7edde8b38060/go.mod h1:z/Maj4vmuHXGnfo0ERKn5jbgN4nDaMtzsY7M3qgaRVc=
+github.com/dreblang/core v0.0.0-20210104181905-95fce13542a2 h1:querMQUwb+fDYZg4+K5Nt77pXTcuo/1bmurBHuPPQmA=
+github.com/dreblang/core v0.0.0-20210104181905-95fce13542a2/go.mod h1:z/Maj4vmuHXGnfo0ERKn5jbgN4nDaMtzsY7M3qgaRVc=
 github.com/dreblang/core v0.0.3 h1:x+y5a+SxWxWpNPbJZIuKmc72pk8SHVx1OKP36Q0QuTA=
 github.com/dreblang/core v0.0.3/go.mod h1:z/Maj4vmuHXGnfo0ERKn5jbgN4nDaMtzsY7M3qgaRVc=
 github.com/klauspost/compress v1.10.7 h1:7rix8v8GpI3ZBb0nSozFRgbtXKv+hOe+qfEpZqybrAg=
