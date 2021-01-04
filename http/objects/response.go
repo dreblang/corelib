@@ -78,6 +78,7 @@ func responseRedirect(this object.Object, args ...object.Object) object.Object {
 		if value, ok := args[0].(*object.String); ok {
 			r.ctx.SetStatusCode(fasthttp.StatusFound)
 			r.ctx.Header.Set("location", value.Value)
+			r.ctx.SkipBody = true
 		}
 	}
 	return object.NewError("Could not set status. Invalid arguments!")
