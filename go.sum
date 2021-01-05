@@ -2,6 +2,8 @@ github.com/andybalholm/brotli v1.0.0 h1:7UCwP93aiSfvWpapti8g88vVVGp2qqtGyePsSuDa
 github.com/andybalholm/brotli v1.0.0/go.mod h1:loMXtMfwqflxFJPmdbJO0a3KNoPuLBgiu3qAvBg8x/Y=
 github.com/dreblang/core v0.0.5 h1:yLCvDjVAyt6mDJMsjviN46ti0aNNSp5my1rp/VH0Z9s=
 github.com/dreblang/core v0.0.5/go.mod h1:z/Maj4vmuHXGnfo0ERKn5jbgN4nDaMtzsY7M3qgaRVc=
+github.com/dreblang/core v0.0.6 h1:f0pzsMCKaNW2THmkwpbVOBEjPaxB5UllnATESQ2brFE=
+github.com/dreblang/core v0.0.6/go.mod h1:z/Maj4vmuHXGnfo0ERKn5jbgN4nDaMtzsY7M3qgaRVc=
 github.com/klauspost/compress v1.10.7 h1:7rix8v8GpI3ZBb0nSozFRgbtXKv+hOe+qfEpZqybrAg=
 github.com/klauspost/compress v1.10.7/go.mod h1:aoV0uJVorq1K+umq18yTdKaF57EivdYsUV+/s2qKfXs=
 github.com/qiangxue/fasthttp-routing v0.0.0-20160225050629-6ccdc2a18d87 h1:u7uCM+HS2caoEKSPtSFQvvUDXQtqZdu3MYtF+QEw7vA=
